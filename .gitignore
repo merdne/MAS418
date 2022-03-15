@@ -4,6 +4,7 @@
 # Recommended: VisualStudio.gitignore
 
 *.~u
+*.suo
 
 # TwinCAT files
 *.tpy
