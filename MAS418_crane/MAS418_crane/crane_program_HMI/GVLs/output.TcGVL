@@ -3,6 +3,12 @@
   <GVL Name="output" Id="{50514818-2454-4f82-b3b0-4985051ea887}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
-END_VAR]]></Declaration>
+	bRunningLight : BOOL;
+	fCylinderStroke : REAL;
+	fCylinderVelocity : REAL;
+	fTimeInSeconds : REAL;
+END_VAR
+
+]]></Declaration>
   </GVL>
 </TcPlcObject>
