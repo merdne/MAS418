@@ -6,9 +6,6 @@ VAR_GLOBAL
 	bEnableSwitch : BOOL;
 	bModeSwitch : BOOL;
 	bStartSwitch : BOOL;
-	
-	
-
 
 END_VAR]]></Declaration>
   </GVL>

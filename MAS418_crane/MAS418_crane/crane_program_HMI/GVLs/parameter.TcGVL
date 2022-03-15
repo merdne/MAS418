@@ -9,6 +9,7 @@ VAR_GLOBAL
 	iMaxCylinderStroke : INT := 2;
 	iMinCylinderStroke : INT := 0;
 	fAutoTime : REAL;
+	fManualTime : REAL;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
