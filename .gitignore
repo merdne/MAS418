@@ -3,6 +3,8 @@
 #
 # Recommended: VisualStudio.gitignore
 
+*.~u
+
 # TwinCAT files
 *.tpy
 *.tclrs

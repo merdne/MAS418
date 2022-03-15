@@ -1,13 +1,64 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1">
-  <POU Name="MAIN" Id="{cb67f74e-91d9-4716-afa6-00f8be6d0374}">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="MAIN" Id="{cb67f74e-91d9-4716-afa6-00f8be6d0374}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
 END_VAR
-]]>
-    </Declaration>
+]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[IF input.bEnableSwitch = FALSE THEN
+	input.bStartSwitch := FALSE;
+END_IF
+
+IF input.bStartSwitch = TRUE THEN
+	output.bRunningLight := TRUE;
+	output.fTimeInSeconds := output.fTimeInSeconds + parameter.fCycleTime;
+ELSE
+	output.bRunningLight := FALSE;
+	output.fTimeInSeconds := 0;
+END_IF
+
+IF output.bRunningLight = TRUE AND input.bModeSwitch = TRUE THEN
+	output.fCylinderStroke := parameter.fRefCylinderStroke;
+ELSIF output.bRunningLight = TRUE AND input.bModeSwitch = FALSE 
+AND parameter.iMinCylinderStroke <= output.fCylinderStroke 
+AND output.fCylinderStroke <= parameter.iMaxCylinderStroke THEN
+	output.fCylinderVelocity := parameter.fRefCylinderVelocity;
+	parameter.fAutoTime := parameter.fAutoTime + parameter.fCycleTime;
+	output.fCylinderStroke := output.fCylinderVelocity * parameter.fAutoTime;
+	IF output.fCylinderStroke <= parameter.iMinCylinderStroke 
+	OR output.fCylinderStroke >= parameter.iMaxCylinderStroke THEN
+		parameter.fAutoTime := 0;
+	END_IF
+END_IF
+
+]]></ST>
     </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="2" Count="0" />
+      <LineId Id="6" Count="0" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="17" Count="1" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="30" Count="1" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="37" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="38" Count="1" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="14" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

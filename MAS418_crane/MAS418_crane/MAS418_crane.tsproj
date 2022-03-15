@@ -10,7 +10,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{70614C69-E67F-43EA-8D37-80791E09AB7C}" Name="crane_program_HMI" PrjFilePath="crane_program_HMI\crane_program_HMI.plcproj" TmcFilePath="crane_program_HMI\crane_program_HMI.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="crane_program_HMI\crane_program_HMI.tmc">
 					<Name>crane_program_HMI Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Contexts>

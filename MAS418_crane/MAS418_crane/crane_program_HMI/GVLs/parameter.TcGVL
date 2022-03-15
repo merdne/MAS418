@@ -3,6 +3,12 @@
   <GVL Name="parameter" Id="{d2da53b2-7cce-4c80-b396-75a91e644774}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
+	fCycleTime : REAL := 0.01;
+	fRefCylinderVelocity : REAL;
+	fRefCylinderStroke : REAL;
+	iMaxCylinderStroke : INT := 2;
+	iMinCylinderStroke : INT := 0;
+	fAutoTime : REAL;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
