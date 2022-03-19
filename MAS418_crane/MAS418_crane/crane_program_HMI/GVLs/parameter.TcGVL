@@ -4,7 +4,7 @@
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
 	fCycleTime : REAL := 0.01;
-	fRefCylinderVelocity : REAL;
+	fRefPosCylinderVelocity : REAL;
 	fRefCylinderStroke : REAL;
 	iMaxCylinderStroke : INT := 2;
 	iMinCylinderStroke : INT := 0;
